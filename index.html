@@ -565,7 +565,13 @@ body::after{
      FV
 ====================================================== -->
 <div class="fv">
-  <!-- 旧9月版FV画像は一時非表示。10月版へ差し替えるまでHTML版FVを表示 -->
+  <picture>
+    <!-- PC版画像はまだ9月表記のため、正しい10月版SP画像を全画面幅で使用 -->
+    <img class="fv-hero" src="images/fv-full-sp.webp"
+      alt="湘南エリアで人気のパーソナルジムが高崎に10月オープン 50名限定のジム 何歳からでも、体は変わる。楽しみながら、理想のカラダへ。だから続けられる、マンツーマンのパーソナルジム"
+      onload="this.closest('.fv').classList.add('has-hero')"
+      onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/fv-full-sp.png'}">
+  </picture>
   <div class="wrap">
     <p class="fv-open">群馬で愛されて3店舗目 ─ 〇〇店 10月NEW OPEN!</p>
     <h1 class="fv-catch">何歳からでも、<br><span class="big">体は変わる。</span></h1>
@@ -583,7 +589,13 @@ body::after{
       <span>駐車場完備(仮)</span>
     </div>
 
-    <!-- 旧9月版キャンペーン画像は一時非表示。更新済みHTML版を表示 -->
+    <picture>
+      <source media="(min-width:840px)" srcset="images/campaign-full-pc.webp">
+      <img class="burst-img" src="images/campaign-full-sp.webp"
+        alt="オープン記念キャンペーン 先着15名様限定 10月20日火曜日までのご入会限定 月額15,900円から14,900円税込へ 永年利用可能"
+        onload="this.closest('.fv').classList.add('has-campaign')"
+        onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/campaign-full-sp.png'}">
+    </picture>
     <div class="burst">
       <p class="ribbon">先着15名様まで</p>
       <p class="limit">10月20日<b>(火)</b>までにご入会の方限定</p>
