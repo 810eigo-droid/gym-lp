@@ -125,9 +125,62 @@ section>.wrap{position:relative;z-index:1}
 .btn-primary small{font-weight:700;font-size:12px;display:block;opacity:.92}
 .btn-tel{background:var(--gold);color:var(--dark);border-bottom:3px solid #B07E20}
 .btn-tel .num{font-family:var(--num);font-weight:600;font-size:24px;letter-spacing:.04em}
-.btn-line{background:#1E8A4C;color:#fff;border-bottom:3px solid #14663A}
+.btn-line{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:#1E8A4C;color:#fff;border-bottom:3px solid #14663A
+}
 .btn-line small{font-weight:700;font-size:12px;display:block}
 .btn-line svg{flex:none}
+.btn-line::after{
+  content:"";position:absolute;z-index:0;top:-70%;left:-45%;width:28%;height:240%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);
+  transform:rotate(18deg) translateX(-280%);pointer-events:none;
+  animation:cta-shine 4.8s ease-in-out infinite;
+}
+.btn-line>*{position:relative;z-index:1}
+
+/* ---- 流し読みでも要点が伝わる強調・スクロール演出 ---- */
+.scan-mark{
+  display:inline;font-weight:900;color:var(--ink);
+  padding:0 .08em;margin:0 -.08em;
+  background-image:linear-gradient(100deg,rgba(255,214,48,.88),rgba(245,138,31,.52));
+  background-repeat:no-repeat;background-position:left 88%;background-size:0 46%;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.is-visible .scan-mark,.scan-mark.is-visible{
+  animation:marker-sweep .78s cubic-bezier(.22,.8,.28,1) forwards;
+  animation-delay:var(--mark-delay,.16s);
+}
+.sec-title .accent{position:relative;display:inline-block}
+.sec-title .accent::after{
+  content:"";position:absolute;left:0;right:0;bottom:-3px;height:4px;
+  border-radius:99px;background:var(--grad);transform:scaleX(0);transform-origin:left;
+}
+.sec-head.is-visible .sec-title .accent::after{
+  animation:underline-sweep .55s .2s ease-out forwards;
+}
+html.motion-ready .js-reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,.8,.28,1),box-shadow .25s ease;
+  transition-delay:var(--delay,0s)
+}
+html.motion-ready .js-reveal.is-visible{opacity:1;transform:translateY(0)}
+@keyframes marker-sweep{to{background-size:100% 46%}}
+@keyframes underline-sweep{to{transform:scaleX(1)}}
+@keyframes check-pop{
+  0%{transform:scale(.55) rotate(-12deg)}
+  65%{transform:scale(1.12) rotate(3deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+@keyframes cta-shine{
+  0%,68%{transform:rotate(18deg) translateX(-280%)}
+  88%,100%{transform:rotate(18deg) translateX(720%)}
+}
+@keyframes price-pop{
+  0%{transform:scale(.94)}
+  70%{transform:scale(1.035)}
+  100%{transform:scale(1)}
+}
 
 /* =========================================================
    ヘッダー
@@ -260,18 +313,20 @@ header{
   border-radius:0 6px 6px 0;padding:14px 16px;
   font-weight:500;font-size:16.5px;line-height:1.7;
 }
+.worry-list li.is-visible:hover{
+  transform:translateX(4px);box-shadow:0 5px 14px rgba(34,26,19,.1)
+}
 .worry-list .check{
   flex:none;width:26px;height:26px;border-radius:4px;background:var(--grad);
   color:#fff;display:flex;align-items:center;justify-content:center;
   font-weight:900;font-size:15px;margin-top:4px;
 }
+.worry-list li.is-visible .check{animation:check-pop .48s calc(var(--delay,0s) + .08s) both}
 .worry-close{
   margin-top:28px;text-align:center;font-family:var(--head);
   font-weight:900;font-size:22px;line-height:1.7;
 }
-.worry-close .marker{
-  background:linear-gradient(transparent 66%, rgba(240,120,24,.35) 66%);
-}
+.worry-close .marker{--mark-delay:.28s}
 
 /* =========================================================
    人気の理由
@@ -301,6 +356,7 @@ header{
 }
 .reason-no b{font-family:var(--num);font-weight:600;font-size:23px;margin-top:3px}
 .reason h3{flex:1;text-align:center;font-family:var(--head);font-weight:900;font-size:18.5px;line-height:1.5}
+.reason .scan-mark{--mark-delay:.25s}
 .reason p{font-size:14.5px;line-height:1.85;margin-bottom:14px}
 .reason .ph{height:150px;margin-top:auto;border-radius:8px}
 
@@ -384,6 +440,7 @@ header{
 .price-box.before .amount{font-size:27px;text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px}
 .price-box.after{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(217,58,12,.35)}
 .price-box.after .amount{font-size:37px;line-height:1.1}
+.campaign-card.is-visible .price-box.after{animation:price-pop .68s .35s ease-out both}
 .price-arrow{font-family:var(--head);font-weight:900;color:var(--orange);font-size:24px}
 .price-forever{
   margin-top:18px;background:#EAF6EE;border:1px solid #BFE3CC;border-radius:8px;padding:12px 14px;
@@ -562,7 +619,12 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .btn{transition:none}
+  .btn,.js-reveal{transition:none!important}
+  .btn-line::after,.scan-mark,.sec-title .accent::after,
+  .worry-list .check,.price-box.after{animation:none!important}
+  .scan-mark{background-size:100% 46%}
+  .sec-title .accent::after{transform:scaleX(1)}
+  html.motion-ready .js-reveal{opacity:1;transform:none}
 }
 
 /* ---- WATERMARK(デザイン提案用サンプル表示。納品時にこのブロックを削除) ---- */
@@ -650,13 +712,13 @@ body::after{
       <h2 class="sec-title">ひとつでも当てはまったら、<br><span class="accent">はじめどき。</span></h2>
     </div>
     <ul class="worry-list">
-      <li><span class="check">✓</span>最近、階段や坂道で息が切れるようになった</li>
-      <li><span class="check">✓</span>健康診断の数値が気になってきた</li>
-      <li><span class="check">✓</span>運動したいけど、何から始めればいいか分からない</li>
-      <li><span class="check">✓</span>きついトレーニングは続けられる自信がない</li>
-      <li><span class="check">✓</span>ひとりだと、どうせ続かない気がする</li>
+      <li style="--delay:.04s"><span class="check">✓</span><span>最近、<span class="scan-mark">階段・坂道で息切れ</span>するようになった</span></li>
+      <li style="--delay:.10s"><span class="check">✓</span><span><span class="scan-mark">健康診断の数値</span>が気になってきた</span></li>
+      <li style="--delay:.16s"><span class="check">✓</span><span>運動したいけれど、<span class="scan-mark">何から始めればいいか分からない</span></span></li>
+      <li style="--delay:.22s"><span class="check">✓</span><span><span class="scan-mark">きついトレーニングは続かない</span>気がする</span></li>
+      <li style="--delay:.28s"><span class="check">✓</span><span><span class="scan-mark">ひとりだと続かない</span>気がする</span></li>
     </ul>
-    <p class="worry-close">その気がかり、ぜんぶ<br><span class="marker">当ジムにおまかせください!</span></p>
+    <p class="worry-close js-reveal">その気がかり、ぜんぶ<br><span class="marker scan-mark">当ジムにおまかせください!</span></p>
   </div>
 </section>
 
@@ -677,7 +739,7 @@ body::after{
       <div class="reason">
         <div class="reason-head">
           <span class="reason-no">理由<b>1</b></span>
-          <h3>経験豊富なトレーナーの<br>完全マンツーマン指導</h3>
+          <h3>経験豊富なトレーナーの<br><span class="scan-mark">完全マンツーマン指導</span></h3>
         </div>
         <p>お一人おひとりの体力・目標に合わせたオーダーメイドのトレーニング。ひざや腰に不安のある方も、無理のないメニューで安心です。</p>
         <div class="ph" data-label="トレーニング指導の写真"><img src="images/image_6.webp" alt="トレーナーによるマンツーマン指導" onerror="this.remove()"></div>
@@ -685,7 +747,7 @@ body::after{
       <div class="reason">
         <div class="reason-head">
           <span class="reason-no">理由<b>2</b></span>
-          <h3>月額14,900円〜<br>続けやすいリーズナブル価格</h3>
+          <h3><span class="scan-mark">月額14,900円〜</span><br>続けやすいリーズナブル価格</h3>
         </div>
         <p>パーソナルジムは高い、をくつがえす料金設定。月額制だから、追加料金を気にせず理想のカラダづくりを続けられます。</p>
         <div class="ph" data-label="料金・受付の写真"><img src="images/image_7.webp" alt="続けやすい料金のパーソナルジム" onerror="this.remove()"></div>
@@ -693,7 +755,7 @@ body::after{
       <div class="reason">
         <div class="reason-head">
           <span class="reason-no">理由<b>3</b></span>
-          <h3>楽しく続けられるから<br>効果が出る</h3>
+          <h3><span class="scan-mark">楽しく続けられる</span>から<br>効果が出る</h3>
         </div>
         <p>きつさを我慢するトレーニングは続きません。楽しみながら通えるプログラムで、3店舗目を出せるほど多くの会員様に愛されています。</p>
         <div class="ph" data-label="トレーニング風景の写真"><img src="images/image_8.webp" alt="楽しくトレーニングする会員" onerror="this.remove()"></div>
@@ -784,7 +846,7 @@ body::after{
     <p class="plan-payment-note">※入会時は、入会金＋月会費（最初の2ヶ月分）が必要です。</p>
 
     <div class="price-card campaign-card">
-      <p class="plan-name">先着15名様限定・オープン記念キャンペーン</p>
+      <p class="plan-name"><span class="scan-mark">先着15名様限定</span><br>オープン記念キャンペーン</p>
       <div class="price-compare">
         <div class="price-box before">
           <span class="label">通常会費</span>
@@ -797,7 +859,7 @@ body::after{
         </div>
       </div>
       <p class="price-forever">10月20日（火）までにご入会いただくと、<br><b>割引会費で永年利用可能!</b></p>
-      <p class="price-deadline">先着15名様・<b>10/20(火)</b> まで</p>
+      <p class="price-deadline"><span class="scan-mark">先着15名様</span>・<b>10/20(火)</b> まで</p>
       <p class="price-note">※50名限定のジムです。オープン記念の今回限りのキャンペーンです。</p>
     </div>
   </div>
@@ -1025,6 +1087,37 @@ body::after{
     <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>入会待ちLINE<small>登録無料</small></span></a>
   </div>
 </div>
+
+<script>
+(() => {
+  const targets = [
+    ...document.querySelectorAll('.sec-head, .worry-list li, .worry-close, .reason, .voice, .plan-card, .price-card, .step, .store-card, .sister, .qa, .contact-card')
+  ];
+
+  targets.forEach((element, index) => {
+    element.classList.add('js-reveal');
+    if (!element.style.getPropertyValue('--delay')) {
+      element.style.setProperty('--delay', `${Math.min(index % 4, 3) * 0.06}s`);
+    }
+  });
+
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    targets.forEach(element => element.classList.add('is-visible'));
+    return;
+  }
+
+  document.documentElement.classList.add('motion-ready');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -7% 0px' });
+
+  targets.forEach(element => observer.observe(element));
+})();
+</script>
 
 </body>
 </html>
