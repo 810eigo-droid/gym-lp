@@ -446,15 +446,38 @@ header{
 }
 .store-table td{padding:8px 0;border-bottom:1px solid var(--line)}
 .store-table tr:last-child td{border-bottom:none}
-.sisters{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.sister{
-  background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px;text-align:center;
+.sister-heading{
+  margin:38px 0 18px;text-align:center;font-family:var(--head);
+  font-weight:900;font-size:23px;line-height:1.5
 }
-.sister h4{font-family:var(--head);font-weight:900;font-size:16px}
-.sister p{font-size:13px;color:var(--ink-soft);margin-top:4px}
-.sister .badge{
-  display:inline-block;background:var(--dark);color:var(--gold);
-  font-weight:700;font-size:12px;border-radius:4px;padding:2px 12px;margin-top:8px;
+.sister-heading small{
+  display:block;color:var(--red);font-family:var(--num);
+  font-size:13px;letter-spacing:.2em
+}
+.sisters{display:grid;grid-template-columns:1fr;gap:22px}
+.sister{
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:0 3px 14px rgba(34,26,19,.08)
+}
+.sister-map iframe{display:block;width:100%;height:250px;border:0}
+.sister-body{padding:20px}
+.sister-title{
+  font-family:var(--head);font-weight:900;font-size:20px;line-height:1.55;
+  margin-bottom:12px
+}
+.sister-title small{
+  display:block;color:var(--red);font-size:12px;letter-spacing:.08em
+}
+.sister .store-table th{width:5.5em}
+.sister .store-table td{font-size:14px;line-height:1.7}
+.sister .store-table a{color:var(--green-deep);font-weight:900;text-decoration:underline}
+@media (max-width:480px){
+  .sister-map iframe{height:220px}
+  .sister-body{padding:18px 15px}
+  .sister-title{font-size:18px}
+  .sister .store-table{font-size:13.5px}
+  .sister .store-table th{display:block;width:auto;padding:10px 0 0}
+  .sister .store-table td{display:block;padding:2px 0 10px}
 }
 .map-frame{
   border-radius:8px;overflow:hidden;border:1px solid var(--line);
@@ -857,7 +880,7 @@ body::after{
     <div class="sec-head">
       <span class="eyebrow">SHOP</span>
       <h2 class="sec-title">店舗のご案内</h2>
-      <p class="note">※営業時間・定休日・電話番号・駐車場台数は確定後に差し替えます。</p>
+      <p class="note">※高崎の新店舗について、営業時間・定休日・電話番号・駐車場台数は確定後に差し替えます。</p>
     </div>
 
     <div class="store-card new">
@@ -875,17 +898,45 @@ body::after{
       </div>
     </div>
 
+    <h3 class="sister-heading"><small>GROUP STORES</small>系列店のご案内</h3>
     <div class="sisters">
-      <div class="sister">
-        <h4>△△店(1号店)</h4>
-        <p>群馬県△△市(仮)</p>
-        <span class="badge">営業中</span>
-      </div>
-      <div class="sister">
-        <h4>□□店(2号店)</h4>
-        <p>群馬県□□市(仮)</p>
-        <span class="badge">営業中</span>
-      </div>
+      <article class="sister">
+        <div class="sister-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13015.396748733152!2d139.3920095!3d35.3593889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1dbdbae5935b75d1!2z44OY44Or44K544Op44Kk44OV44K444Og!5e0!3m2!1sja!2sjp!4v1667666155255!5m2!1sja!2sjp"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="ヘルスライフジムfine寒川店の地図"></iframe>
+        </div>
+        <div class="sister-body">
+          <h4 class="sister-title"><small>寒川店</small>ヘルスライフジムfine</h4>
+          <table class="store-table">
+            <tr><th>住所</th><td>〒253-0113<br>神奈川県高座郡寒川町大曲1-15-3<br>グレイス石塚1F</td></tr>
+            <tr><th>営業時間</th><td>月～金 9:00-22:00<br>土 9:00-17:00<br>日・祝 9:00-14:00</td></tr>
+            <tr><th>電話番号</th><td><a href="tel:0467-39-6236">0467-39-6236</a></td></tr>
+            <tr><th>定休日</th><td>毎月20日・30日・31日</td></tr>
+            <tr><th>最寄り駅</th><td>JR相模線「香川駅」より徒歩10分</td></tr>
+          </table>
+        </div>
+      </article>
+
+      <article class="sister">
+        <div class="sister-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3250.264891948253!2d139.3426324!3d35.448236!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601901d32fafef2f%3A0x6e39fa78df35c58b!2z44OY44Or44K544Op44Kk44OV44K444OgdHJlbGxpc--8iOWOmuacqOW6l--8iQ!5e0!3m2!1sja!2sjp!4v1667667089871!5m2!1sja!2sjp"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="ヘルスライフジムtrellis厚木店の地図"></iframe>
+        </div>
+        <div class="sister-body">
+          <h4 class="sister-title"><small>厚木店</small>ヘルスライフジムtrellis</h4>
+          <table class="store-table">
+            <tr><th>住所</th><td>〒243-0031<br>神奈川県厚木市戸室5-31<br>厚木トレリス3F</td></tr>
+            <tr><th>営業時間</th><td>月～金 10:00-21:00<br>（14:00-16:30休憩）<br>土 9:00-17:00<br>日・祝 9:00-12:30<br><small>※営業時間は若干変更となる場合があります。詳しくはお問い合わせください。</small></td></tr>
+            <tr><th>電話番号</th><td><a href="tel:070-3196-2615">070-3196-2615</a></td></tr>
+            <tr><th>定休日</th><td>水曜日</td></tr>
+            <tr><th>最寄り駅</th><td>小田急線「本厚木駅」よりバス8分<br>「アンリツ前」下車</td></tr>
+          </table>
+        </div>
+      </article>
     </div>
 
     <div class="sec-head" style="margin-top:44px" id="access">
