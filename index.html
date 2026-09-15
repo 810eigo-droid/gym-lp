@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ヘルスライフジム(仮称)群馬3号店 新規オープンLP デザイン案B(大人シック)</title>
+<title>ヘルスライフジム(仮称)群馬3号店 10月NEW OPEN</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -356,6 +356,21 @@ header{
   background:var(--paper);border-radius:10px;padding:28px 20px;text-align:center;color:var(--ink);
   box-shadow:0 12px 32px rgba(0,0,0,.4);
 }
+.plan-list{display:grid;gap:12px;margin-bottom:14px}
+.plan-card{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:#fff;color:var(--ink);border-radius:9px;padding:16px 18px;
+  border-left:5px solid var(--orange);text-align:left
+}
+.plan-card.featured{border-color:var(--gold)}
+.plan-card.admission{border-color:var(--ink-soft)}
+.plan-card-name{font-family:var(--head);font-weight:900;font-size:17px}
+.plan-card-detail{font-size:12.5px;color:var(--ink-soft)}
+.plan-card-price{text-align:right;font-weight:700;white-space:nowrap}
+.plan-card-price b{font-family:var(--num);font-size:27px}
+.plan-card-price small{display:block;font-size:12.5px;color:var(--ink-soft)}
+.plan-payment-note{font-size:13px;line-height:1.7;color:#F3E7D3;margin:10px 2px 24px}
+.campaign-card{margin-top:22px}
 .price-card .plan-name{
   font-family:var(--head);font-weight:900;font-size:18px;
   border-bottom:3px solid var(--orange);display:inline-block;padding-bottom:4px;
@@ -550,14 +565,9 @@ body::after{
      FV
 ====================================================== -->
 <div class="fv">
-  <picture>
-    <img class="fv-hero" src="images/fv-full-sp.webp"
-      alt="群馬で愛されて3店舗目 〇〇店 9月NEW OPEN! 何歳からでも、体は変わる。楽しみながら、理想のカラダへ。だから続けられる、マンツーマンのパーソナルジム"
-      onload="this.closest('.fv').classList.add('has-hero')"
-      onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/fv-full-sp.png'}">
-  </picture>
+  <!-- 旧9月版FV画像は一時非表示。10月版へ差し替えるまでHTML版FVを表示 -->
   <div class="wrap">
-    <p class="fv-open">群馬で愛されて3店舗目 ─ 〇〇店 9月NEW OPEN!</p>
+    <p class="fv-open">群馬で愛されて3店舗目 ─ 〇〇店 10月NEW OPEN!</p>
     <h1 class="fv-catch">何歳からでも、<br><span class="big">体は変わる。</span></h1>
     <p class="fv-sub">楽しみながら、理想のカラダへ。<br>だから続けられる、マンツーマンのパーソナルジム。</p>
 
@@ -567,32 +577,27 @@ body::after{
     </div>
 
     <div class="fv-badges">
+      <span>50名限定のジム</span>
       <span>完全マンツーマン指導</span>
       <span>30〜70代・初心者歓迎</span>
       <span>駐車場完備(仮)</span>
     </div>
 
-    <picture>
-      <source media="(min-width:840px)" srcset="images/campaign-full-pc.webp">
-      <img class="burst-img" src="images/campaign-full-sp.webp"
-        alt="オープン記念キャンペーン 9月20日(日)までのご入会限定 月額16,900円が14,900円(税込)に この価格がずっと続く永年割引 ※オープン記念の今回限り"
-        onload="this.closest('.fv').classList.add('has-campaign')"
-        onerror="if(!this.dataset.f){this.dataset.f=1;this.src='images/campaign-full-sp.png'}">
-    </picture>
+    <!-- 旧9月版キャンペーン画像は一時非表示。更新済みHTML版を表示 -->
     <div class="burst">
-      <p class="ribbon">オープン記念キャンペーン</p>
-      <p class="limit">9月20日<b>(日)</b>までのご入会限定</p>
+      <p class="ribbon">先着15名様まで</p>
+      <p class="limit">10月20日<b>(火)</b>までにご入会の方限定</p>
       <p class="price-line">
-        <span class="was">月額16,900円</span>
+        <span class="was">月額15,900円</span>
         <span class="arrow">▶</span>
-        <span class="now">14,900<small>円(税込)</small></span>
+        <span class="now">14,900<small>円</small></span>
       </p>
-      <p><span class="forever">この価格がずっと続く「永年割引」</span></p>
-      <p class="once">※オープン記念の今回限り。次回の開催予定はありません。</p>
+      <p><span class="forever">割引会費で永年利用可能!</span></p>
+      <p class="once">※オープン記念の今回限りです。</p>
     </div>
 
     <div class="fv-cta">
-      <a class="btn btn-line" href="https://lin.ee/XXXXXXXX"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・先行案内をお届け ※URLは仮</small></span></a>
+      <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・先行案内をお届け</small></span></a>
       <a class="btn btn-tel" href="tel:0000000000">📞 <span class="num">000-000-0000</span></a>
     </div>
   </div>
@@ -640,7 +645,7 @@ body::after{
           <h3>経験豊富なトレーナーの<br>完全マンツーマン指導</h3>
         </div>
         <p>お一人おひとりの体力・目標に合わせたオーダーメイドのトレーニング。ひざや腰に不安のある方も、無理のないメニューで安心です。</p>
-        <div class="ph" data-label="トレーニング指導の写真"><img src="images/reason-01.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph" data-label="トレーニング指導の写真"><img src="images/image_6.webp" alt="トレーナーによるマンツーマン指導" onerror="this.remove()"></div>
       </div>
       <div class="reason">
         <div class="reason-head">
@@ -648,7 +653,7 @@ body::after{
           <h3>月額14,900円〜<br>続けやすいリーズナブル価格</h3>
         </div>
         <p>パーソナルジムは高い、をくつがえす料金設定。月額制だから、追加料金を気にせず理想のカラダづくりを続けられます。</p>
-        <div class="ph" data-label="料金・受付の写真"><img src="images/reason-02.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph" data-label="料金・受付の写真"><img src="images/image_7.webp" alt="続けやすい料金のパーソナルジム" onerror="this.remove()"></div>
       </div>
       <div class="reason">
         <div class="reason-head">
@@ -656,7 +661,7 @@ body::after{
           <h3>楽しく続けられるから<br>効果が出る</h3>
         </div>
         <p>きつさを我慢するトレーニングは続きません。楽しみながら通えるプログラムで、3店舗目を出せるほど多くの会員様に愛されています。</p>
-        <div class="ph" data-label="トレーニング風景の写真"><img src="images/reason-03.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph" data-label="トレーニング風景の写真"><img src="images/image_8.webp" alt="楽しくトレーニングする会員" onerror="this.remove()"></div>
       </div>
     </div>
   </div>
@@ -674,7 +679,7 @@ body::after{
     </div>
     <div class="voice-list">
       <div class="voice">
-        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/voice-01.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/woman1.webp" alt="女性会員" onerror="this.remove()"></div>
         <div class="voice-body">
           <p class="voice-meta">60代・女性(仮)</p>
           <h3>「ひざの痛みが気にならなくなり、旅行が楽しみに」</h3>
@@ -682,7 +687,7 @@ body::after{
         </div>
       </div>
       <div class="voice">
-        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/voice-02.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/pair2.webp" alt="一緒に通うご夫婦" onerror="this.remove()"></div>
         <div class="voice-body">
           <p class="voice-meta">40代・男性(仮)</p>
           <h3>「健康診断の数値が改善。妻も一緒に通っています」</h3>
@@ -690,7 +695,7 @@ body::after{
         </div>
       </div>
       <div class="voice">
-        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/voice-03.webp" alt="" onerror="this.remove()"></div>
+        <div class="ph voice-ph" data-label="会員様の写真"><img src="images/70y.o-man3.webp" alt="70代男性会員" onerror="this.remove()"></div>
         <div class="voice-body">
           <p class="voice-meta">70代・男性(仮)</p>
           <h3>「マンツーマンだから、私のペースで大丈夫」</h3>
@@ -708,24 +713,57 @@ body::after{
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">PRICE</span>
-      <h2 class="sec-title">オープン記念<br>特別価格のご案内</h2>
+      <h2 class="sec-title">料金のご案内</h2>
     </div>
-    <div class="price-card">
-      <p class="plan-name">パーソナルトレーニング 月額プラン(仮)</p>
+
+    <div class="plan-list">
+      <div class="plan-card">
+        <div>
+          <p class="plan-card-name">週2回コース</p>
+          <p class="plan-card-detail">月8回トレーニング</p>
+        </div>
+        <p class="plan-card-price"><b>29,900</b>円／月<small>税込32,890円</small></p>
+      </div>
+      <div class="plan-card">
+        <div>
+          <p class="plan-card-name">週1.5回コース</p>
+          <p class="plan-card-detail">月6回トレーニング</p>
+        </div>
+        <p class="plan-card-price"><b>22,900</b>円／月<small>税込25,190円</small></p>
+      </div>
+      <div class="plan-card featured">
+        <div>
+          <p class="plan-card-name">週1回コース</p>
+          <p class="plan-card-detail">月4回トレーニング</p>
+        </div>
+        <p class="plan-card-price"><b>15,900</b>円／月<small>税込17,490円</small></p>
+      </div>
+      <div class="plan-card admission">
+        <div>
+          <p class="plan-card-name">入会金</p>
+          <p class="plan-card-detail">入会時のみ</p>
+        </div>
+        <p class="plan-card-price"><b>10,000</b>円<small>税込11,000円</small></p>
+      </div>
+    </div>
+    <p class="plan-payment-note">※入会時は、入会金＋月会費（最初の2ヶ月分）が必要です。</p>
+
+    <div class="price-card campaign-card">
+      <p class="plan-name">先着15名様限定・オープン記念キャンペーン</p>
       <div class="price-compare">
         <div class="price-box before">
-          <span class="label">通常価格</span>
-          <span class="amount">16,900</span><span class="yen">円</span>
+          <span class="label">通常会費</span>
+          <span class="amount">15,900</span><span class="yen">円</span>
         </div>
         <div class="price-arrow">▶</div>
         <div class="price-box after">
-          <span class="label">キャンペーン価格</span>
-          <span class="amount">14,900</span><span class="yen">円(税込)</span>
+          <span class="label">割引会費</span>
+          <span class="amount">14,900</span><span class="yen">円</span>
         </div>
       </div>
-      <p class="price-forever">期間中にご入会いただくと、この月額が<br><b>退会されるまでずっと続く「永年割引」!</b></p>
-      <p class="price-deadline">お申し込みは <b>9/20(日)</b> まで</p>
-      <p class="price-note">※オープン記念の今回限りのキャンペーンです。次回開催の予定はありません。<br>※プラン名・入会金・回数などの詳細条件はご支給内容に合わせて調整します。</p>
+      <p class="price-forever">10月20日（火）までにご入会いただくと、<br><b>割引会費で永年利用可能!</b></p>
+      <p class="price-deadline">先着15名様・<b>10/20(火)</b> まで</p>
+      <p class="price-note">※50名限定のジムです。オープン記念の今回限りのキャンペーンです。</p>
     </div>
   </div>
 </section>
@@ -807,16 +845,16 @@ body::after{
     <div class="sec-head">
       <span class="eyebrow">SHOP</span>
       <h2 class="sec-title">店舗のご案内</h2>
-      <p class="note">※住所・営業時間・電話番号はすべて仮です。確定情報に差し替えます。</p>
+      <p class="note">※営業時間・定休日・電話番号・駐車場台数は確定後に差し替えます。</p>
     </div>
 
     <div class="store-card new">
-      <span class="store-tag">9月 NEW OPEN</span>
+      <span class="store-tag">10月 NEW OPEN</span>
       <div class="ph" data-label="新店舗の外観写真"><img src="images/store-new.webp" alt="" onerror="this.remove()"></div>
       <div class="store-body">
-        <h3>〇〇店(3号店)<small>群馬県〇〇市</small></h3>
+        <h3>〇〇店(3号店)<small>群馬県高崎市</small></h3>
         <table class="store-table">
-          <tr><th>住所</th><td>群馬県〇〇市〇〇町0-0-0(仮)</td></tr>
+          <tr><th>住所</th><td>群馬県高崎市日高町548-1</td></tr>
           <tr><th>営業時間</th><td>9:00〜21:00(仮)</td></tr>
           <tr><th>定休日</th><td>毎週〇曜日(仮)</td></tr>
           <tr><th>電話</th><td><a href="tel:0000000000">000-000-0000(仮)</a></td></tr>
@@ -841,13 +879,13 @@ body::after{
     <div class="sec-head" style="margin-top:44px" id="access">
       <span class="eyebrow">ACCESS</span>
       <h2 class="sec-title">地図・アクセス</h2>
-      <p class="note">※下の地図は仮(前橋市中心部)。住所確定後、新店舗の地図に差し替えます。</p>
+      <p class="note">群馬県高崎市日高町548-1</p>
     </div>
     <div class="map-frame">
       <iframe
-        src="https://www.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%89%8D%E6%A9%8B%E5%B8%82&output=embed"
+        src="https://www.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E9%AB%98%E5%B4%8E%E5%B8%82%E6%97%A5%E9%AB%98%E7%94%BA548-1&output=embed"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="店舗地図(仮)"></iframe>
+        title="群馬県高崎市日高町548-1の地図"></iframe>
     </div>
   </div>
 </section>
@@ -881,7 +919,7 @@ body::after{
       </div>
       <div class="qa">
         <dt><span class="mark">Q</span>キャンペーン価格はいつまで続きますか?</dt>
-        <dd><span class="mark">A</span>9月20日(日)までにご入会いただいた方は、月額14,900円(税込)が退会されるまでずっと適用されます。</dd>
+        <dd><span class="mark">A</span>10月20日（火）までにご入会いただいた先着15名様は、月額14,900円の割引会費で永年ご利用いただけます。</dd>
       </div>
     </dl>
   </div>
@@ -899,10 +937,10 @@ body::after{
       <h2 class="sec-title">無料体験カウンセリング<br>ご予約はこちら</h2>
     </div>
     <div class="contact-card">
-      <p class="lead">キャンペーンは<br><span class="accent">9/20(日)まで!</span><br>まずは【入会待ちLINE】に<br>ご登録ください</p>
+      <p class="lead">キャンペーンは先着15名様・<br><span class="accent">10/20(火)まで!</span><br>まずは【入会待ちLINE】に<br>ご登録ください</p>
       <div class="contact-cta">
         <a class="btn btn-tel" href="tel:0000000000">📞 <span class="num">000-000-0000</span></a>
-        <a class="btn btn-line" href="https://lin.ee/XXXXXXXX"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・1分で完了 ※URLは仮</small></span></a>
+        <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・1分で完了</small></span></a>
         <a class="btn btn-primary" href="mailto:info@example.com?subject=%E4%BD%93%E9%A8%93%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BB%E3%83%AA%E3%83%B3%E3%82%B0%E4%BA%88%E7%B4%84%E5%B8%8C%E6%9C%9B">WEBでカウンセリングを予約<small>※フォームは仮(公開時に本実装)</small></a>
       </div>
       <p class="contact-hours">LINE登録は24時間受付/お電話の受付時間 9:00〜21:00(仮)</p>
@@ -912,7 +950,7 @@ body::after{
 
 <footer>
   <p class="fbrand">ヘルスライフジム 〇〇店(仮)</p>
-  <p>群馬県〇〇市〇〇町0-0-0(仮)</p>
+  <p>群馬県高崎市日高町548-1</p>
   <p style="margin-top:14px;opacity:.7">© Health Life Gym(仮)</p>
 </footer>
 
@@ -920,7 +958,7 @@ body::after{
 <div class="fixed-cta">
   <div class="fixed-cta-inner">
     <a class="btn btn-tel" href="tel:0000000000">📞 電話する<small>タップで発信</small></a>
-    <a class="btn btn-line" href="https://lin.ee/XXXXXXXX"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>入会待ちLINE<small>登録無料</small></span></a>
+    <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>入会待ちLINE<small>登録無料</small></span></a>
   </div>
 </div>
 
