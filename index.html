@@ -194,6 +194,9 @@ header{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-img{display:none;width:46px;height:46px;border-radius:50%;object-fit:cover}
+.brand.has-logo .logo-img{display:block}
+.brand.has-logo .logo-ph{display:none}
 .brand .logo-ph{
   width:44px;height:44px;border-radius:6px;background:var(--grad);
   display:flex;align-items:center;justify-content:center;
@@ -595,6 +598,9 @@ footer{
   padding:34px 20px 42px;font-size:13px;
 }
 footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bottom:6px;color:#fff}
+.footer-photo{display:none;width:100%;max-width:680px;height:auto;margin:0 auto 26px;
+  border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.footer-photo.on{display:block}
 .fixed-cta{
   position:fixed;left:0;right:0;bottom:0;z-index:200;
   background:rgba(23,19,16,.96);box-shadow:0 -3px 14px rgba(0,0,0,.4);
@@ -645,8 +651,10 @@ body::after{
 <header>
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="ヘルスライフジム トップへ">
+      <img class="logo-img" src="images/logo.webp" alt=""
+        onload="this.closest('.brand').classList.add('has-logo')" onerror="this.remove()">
       <span class="logo-ph">LOGO<br>支給</span>
-      <span class="name">ヘルスライフジム<small>※店名仮・ロゴは支給データに差し替え</small></span>
+      <span class="name">ヘルスライフジム<small>※店名は仮です</small></span>
     </a>
     <a class="header-tel" href="tel:07055051343">📞 お電話</a>
   </div>
@@ -1079,7 +1087,7 @@ body::after{
       <div class="contact-cta">
         <a class="btn btn-tel" href="tel:07055051343">📞 <span class="num">070-5505-1343</span></a>
         <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・1分で完了</small></span></a>
-        <a class="btn btn-primary" href="mailto:info@example.com?subject=%E4%BD%93%E9%A8%93%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BB%E3%83%AA%E3%83%B3%E3%82%B0%E4%BA%88%E7%B4%84%E5%B8%8C%E6%9C%9B">WEBでカウンセリングを予約<small>※フォームは仮(公開時に本実装)</small></a>
+        <a class="btn btn-primary" href="mailto:info@example.com?subject=%E4%BD%93%E9%A8%93%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BB%E3%83%AA%E3%83%B3%E3%82%B0%E4%BA%88%E7%B4%84%E5%B8%8C%E6%9C%9B"><span>WEBでカウンセリングを予約<small>※フォームは仮(公開時に本実装)</small></span></a>
       </div>
       <p class="contact-hours">LINE登録は24時間受付/お電話の受付は 平日9:00〜17:00・土曜9:00〜12:00(日祝休み)</p>
     </div>
@@ -1087,6 +1095,8 @@ body::after{
 </section>
 
 <footer>
+  <img class="footer-photo" src="images/support.webp" alt="トレーナーがマンツーマンでサポートする様子"
+    onload="this.classList.add('on')" onerror="this.remove()">
   <p class="fbrand">ヘルスライフジム 〇〇店(仮)</p>
   <p>群馬県高崎市日高町548-1</p>
   <p style="margin-top:14px;opacity:.7">© Health Life Gym(仮)</p>
