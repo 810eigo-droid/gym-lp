@@ -456,6 +456,9 @@ header{
    体験の流れ
 ========================================================= */
 .flow{background:var(--paper)}
+.flow-hero{display:none;width:100%;height:auto;border-radius:12px;margin-bottom:30px;
+  box-shadow:0 4px 16px rgba(34,26,19,.12)}
+.flow-hero.on{display:block}
 .steps{display:grid;gap:0}
 .step{
   display:flex;gap:16px;align-items:flex-start;position:relative;padding-bottom:30px;
@@ -870,6 +873,9 @@ body::after{
 ====================================================== -->
 <section class="flow" id="flow">
   <div class="wrap">
+    <!-- images/flow-header.webp を置くと自動表示(カウンセリング風景の横長写真) -->
+    <img class="flow-hero" src="images/flow-header.webp" alt="体験カウンセリングの様子"
+      onload="this.classList.add('on')" onerror="this.remove()">
     <div class="sec-head">
       <span class="eyebrow">FLOW</span>
       <h2 class="sec-title">体験カウンセリングの<br><span class="accent">流れ</span></h2>
