@@ -207,7 +207,7 @@ html.motion-ready .js-reveal.is-visible{opacity:1;transform:translateY(0)}
    ヘッダー
 ========================================================= */
 header{
-  position:sticky;top:0;z-index:100;background:var(--dark);color:#fff;
+  background:var(--dark);color:#fff;
   box-shadow:0 1px 8px rgba(0,0,0,.3);
 }
 .header-inner{
@@ -658,12 +658,6 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
   .scan-mark{background-size:100% 46%}
   .sec-title .accent::after{transform:scaleX(1)}
   html.motion-ready .js-reveal{opacity:1;transform:none}
-}
-
-/* ---- WATERMARK(デザイン提案用サンプル表示。納品時にこのブロックを削除) ---- */
-body::after{
-  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
-  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="380" height="280"><text x="20" y="160" transform="rotate(-28 190 140)" font-family="Georgia,serif" font-size="28" letter-spacing="2" fill="%23806A50" fill-opacity="0.14">Sample TAFDesign</text></svg>') repeat;
 }
 </style>
 </head>
