@@ -640,6 +640,30 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
 }
 .to-top.show{opacity:1;pointer-events:auto}
 .to-top svg{display:block}
+/* ハンバーガーメニュー */
+.menu-btn{
+  width:44px;height:44px;border-radius:8px;border:1.5px solid var(--gold);
+  background:transparent;cursor:pointer;padding:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.menu-btn span{display:block;width:20px;height:2.5px;background:var(--gold);border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+body.menu-open .menu-btn span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.menu-open .menu-btn span:nth-child(2){opacity:0}
+body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.drawer{
+  position:fixed;left:0;right:0;top:64px;bottom:0;z-index:250;
+  background:rgba(24,19,16,.97);padding:26px 24px;overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity .22s ease;
+}
+body.menu-open .drawer{opacity:1;pointer-events:auto}
+.drawer>a{
+  display:block;color:#F3E7D3;text-decoration:none;
+  font-family:var(--head);font-weight:700;font-size:17.5px;
+  padding:14px 4px;border-bottom:1px solid rgba(232,163,61,.25);
+}
+.drawer>a::before{content:"›";color:var(--gold);margin-right:12px;font-weight:900}
+.drawer-cta{display:grid;gap:12px;margin-top:24px;max-width:420px}
+.drawer-cta .btn small{display:block;font-size:11px;font-weight:700}
 @media (prefers-reduced-motion:reduce){.to-top{transition:none}}
 
 /* =========================================================
@@ -682,9 +706,27 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
       <span class="logo-ph">LOGO<br>支給</span>
       <span class="name">ヘルスライフジム<small>takasaki</small></span>
     </a>
-    <a class="header-tel" href="tel:07055051343">📞 お電話</a>
+    <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"
+      onclick="document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',document.body.classList.contains('menu-open'))">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="drawer" aria-label="ページ内メニュー">
+  <a href="#reasons">選ばれる3つの理由</a>
+  <a href="#voices">会員様の声</a>
+  <a href="#pricing">料金・キャンペーン</a>
+  <a href="#flow">体験カウンセリングの流れ</a>
+  <a href="#staff">トレーナー紹介</a>
+  <a href="#stores">店舗・アクセス</a>
+  <a href="#faq">よくあるご質問</a>
+  <a href="#contact">お問い合わせ</a>
+  <div class="drawer-cta">
+    <a class="btn btn-tel" href="tel:07055051343">📞 <span>電話する<small>070-5505-1343</small></span></a>
+    <a class="btn btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSceLpdM24HUelZ48ywwvKbPjBDsgJEOryu_1qRv3t9kMq0MYg/viewform" target="_blank" rel="noopener"><span>無料カウンセリング<small>相談だけでもOK</small></span></a>
+  </div>
+</nav>
 
 <!-- =====================================================
      FV
@@ -1185,6 +1227,12 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
 </a>
 <script>
 (function(){
+  document.querySelectorAll('.drawer a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      document.body.classList.remove('menu-open');
+      var b=document.querySelector('.menu-btn');if(b)b.setAttribute('aria-expanded','false');
+    });
+  });
   var btn=document.querySelector('.to-top');if(!btn)return;
   var onScroll=function(){btn.classList.toggle('show',window.scrollY>600)};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
