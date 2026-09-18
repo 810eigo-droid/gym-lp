@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ヘルスライフジムtakasaki|高崎に10月NEW OPEN</title>
-<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,7 +206,7 @@ html.motion-ready .js-reveal.is-visible{opacity:1;transform:translateY(0)}
    ヘッダー
 ========================================================= */
 header{
-  background:var(--dark);color:#fff;
+  position:sticky;top:0;z-index:100;background:var(--dark);color:#fff;
   box-shadow:0 1px 8px rgba(0,0,0,.3);
 }
 .header-inner{
@@ -630,6 +629,18 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
 .fixed-cta-inner{max-width:680px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .fixed-cta .btn{min-height:40px;font-size:14.5px;box-shadow:none;border-radius:6px;padding:4px 10px;gap:6px;white-space:nowrap;border-bottom:none}
 .fixed-cta .btn small{display:none}
+/* 上に戻るボタン */
+.to-top{
+  position:fixed;right:12px;bottom:74px;z-index:190;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(34,26,19,.88);border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;text-decoration:none;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top svg{display:block}
+@media (prefers-reduced-motion:reduce){.to-top{transition:none}}
 
 /* =========================================================
    PC(840px〜)
@@ -1166,5 +1177,18 @@ footer .fbrand{font-family:var(--head);font-weight:900;font-size:17px;margin-bot
 })();
 </script>
 
+<a class="to-top" href="#top" aria-label="ページ上部へ戻る">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 19V6M5.5 12.5 12 6l6.5 6.5" stroke="#E8A33D" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
+<script>
+(function(){
+  var btn=document.querySelector('.to-top');if(!btn)return;
+  var onScroll=function(){btn.classList.toggle('show',window.scrollY>600)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
 </body>
 </html>
