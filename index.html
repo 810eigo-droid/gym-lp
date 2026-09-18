@@ -132,6 +132,25 @@ section>.wrap{position:relative;z-index:1}
   background:#1E8A4C;color:#fff;border-bottom:3px solid #14663A
 }
 .btn-line small{font-weight:700;font-size:12px;display:block}
+/* 無料カウンセリングCTA(参考: 白ピル+大文字+矢印のバナー型) */
+.btn-consult{
+  display:block;text-decoration:none;text-align:center;
+  background:linear-gradient(135deg,#3AA765 0%,#1E7C43 100%);
+  border-radius:14px;padding:14px 16px 12px;color:#fff;
+  box-shadow:0 6px 18px rgba(30,124,67,.35);
+  font-family:var(--head);
+}
+.btn-consult:active{transform:translateY(2px)}
+.bc-pill{display:inline-block;background:#fff;color:#1E7C43;font-weight:900;
+  font-size:12.5px;border-radius:999px;padding:3px 14px;margin-bottom:7px;letter-spacing:.02em}
+.bc-main{display:block;font-weight:900;font-size:20px;line-height:1.35;letter-spacing:.02em}
+.bc-arrow{margin-left:8px;font-weight:900}
+.bc-sub{display:block;font-size:11.5px;font-weight:700;opacity:.92;margin-top:3px}
+.contact-label{font-family:var(--head);font-weight:900;font-size:14.5px;color:var(--ink-soft);
+  margin:6px 0 0;letter-spacing:.06em}
+.contact-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contact-duo .btn{min-height:56px;font-size:16px;padding:8px 10px}
+.contact-duo .btn small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.02em}
 .btn-line svg{flex:none}
 .btn-line::after{
   content:"";position:absolute;z-index:0;top:-70%;left:-45%;width:28%;height:240%;
@@ -196,7 +215,7 @@ header{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-img{display:none;width:46px;height:46px;border-radius:50%;object-fit:cover}
+.logo-img{display:none;height:48px;width:auto}
 .brand.has-logo .logo-img{display:block}
 .brand.has-logo .logo-ph{display:none}
 .brand .logo-ph{
@@ -653,7 +672,7 @@ body::after{
 <header>
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="ヘルスライフジム トップへ">
-      <img class="logo-img" src="images/logo.webp" alt=""
+      <img class="logo-img" src="images/logo-t.png" alt=""
         onload="this.closest('.brand').classList.add('has-logo')" onerror="this.remove()">
       <span class="logo-ph">LOGO<br>支給</span>
       <span class="name">ヘルスライフジム<small>※店名は仮です</small></span>
@@ -710,7 +729,11 @@ body::after{
     </div>
 
     <div class="fv-cta">
-      <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・先行案内をお届け</small></span></a>
+      <a class="btn-consult" href="https://docs.google.com/forms/d/e/1FAIpQLSceLpdM24HUelZ48ywwvKbPjBDsgJEOryu_1qRv3t9kMq0MYg/viewform" target="_blank" rel="noopener">
+        <span class="bc-pill">無理な勧誘は一切ナシ!相談だけでもOK!</span>
+        <span class="bc-main">無料カウンセリング実施中<span class="bc-arrow">›</span></span>
+        <span class="bc-sub">かんたん入力・約1分でお申し込み完了</span>
+      </a>
       <a class="btn btn-tel" href="tel:07055051343">📞 <span class="num">070-5505-1343</span></a>
     </div>
   </div>
@@ -1085,13 +1108,20 @@ body::after{
       <h2 class="sec-title">無料体験カウンセリング<br>ご予約はこちら</h2>
     </div>
     <div class="contact-card">
-      <p class="lead">キャンペーンは先着15名様・<br><span class="accent">10/20(火)まで!</span><br>まずは【入会待ちLINE】に<br>ご登録ください</p>
+      <p class="lead">キャンペーンは先着15名様・<br><span class="accent">10/20(火)まで!</span><br>まずは無料カウンセリングに<br>お申し込みください</p>
       <div class="contact-cta">
-        <a class="btn btn-tel" href="tel:07055051343">📞 <span class="num">070-5505-1343</span></a>
-        <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>【入会待ちLINE】に登録<small>登録無料・1分で完了</small></span></a>
-        <a class="btn btn-primary" href="mailto:info@example.com?subject=%E4%BD%93%E9%A8%93%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BB%E3%83%AA%E3%83%B3%E3%82%B0%E4%BA%88%E7%B4%84%E5%B8%8C%E6%9C%9B"><span>WEBでカウンセリングを予約<small>※フォームは仮(公開時に本実装)</small></span></a>
+        <a class="btn-consult" href="https://docs.google.com/forms/d/e/1FAIpQLSceLpdM24HUelZ48ywwvKbPjBDsgJEOryu_1qRv3t9kMq0MYg/viewform" target="_blank" rel="noopener">
+        <span class="bc-pill">無理な勧誘は一切ナシ!相談だけでもOK!</span>
+        <span class="bc-main">無料カウンセリング実施中<span class="bc-arrow">›</span></span>
+        <span class="bc-sub">かんたん入力・約1分でお申し込み完了</span>
+      </a>
+        <p class="contact-label">─ お問い合わせはこちら ─</p>
+        <div class="contact-duo">
+          <a class="btn btn-tel" href="tel:07055051343">📞 <span>電話する<small>070-5505-1343</small></span></a>
+          <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>LINE<small>気軽に相談OK</small></span></a>
+        </div>
       </div>
-      <p class="contact-hours">LINE登録は24時間受付/お電話の受付は 平日9:00〜17:00・土曜9:00〜12:00(日祝休み)</p>
+      <p class="contact-hours">フォーム・LINEは24時間受付/お電話は 平日9:00〜17:00・土曜9:00〜12:00(日祝休み)</p>
     </div>
   </div>
 </section>
@@ -1108,7 +1138,7 @@ body::after{
 <div class="fixed-cta">
   <div class="fixed-cta-inner">
     <a class="btn btn-tel" href="tel:07055051343">📞 電話する<small>タップで発信</small></a>
-    <a class="btn btn-line" href="https://lin.ee/77h9czC"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>入会待ちLINE<small>登録無料</small></span></a>
+    <a class="btn btn-line" href="https://docs.google.com/forms/d/e/1FAIpQLSceLpdM24HUelZ48ywwvKbPjBDsgJEOryu_1qRv3t9kMq0MYg/viewform" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.64 2 11.1c0 3.99 3.54 7.33 8.32 7.96.32.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.02.89.56 1.09-.47 5.87-3.46 8.01-5.92C21.63 14.28 22 12.75 22 11.1 22 6.64 17.52 3 12 3Z" fill="currentColor"/></svg> <span>無料カウンセリング<small>相談だけでもOK</small></span></a>
   </div>
 </div>
 
